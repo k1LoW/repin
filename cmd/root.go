@@ -19,50 +19,125 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
+
 package cmd
 
 import (
-	"fmt"
-	"github.com/spf13/cobra"
+	"bytes"
+	"errors"
+	"io"
+	"io/fs"
+	"log"
 	"os"
+	"path/filepath"
+	"strings"
+
+	"github.com/k1LoW/repin"
+	"github.com/k1LoW/repin/version"
+	"github.com/spf13/cobra"
 )
 
-
+var (
+	rf       string
+	keywords []string
+	nonl     bool
+	inp      bool
+)
 
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
-	Use:   "repin",
-	Short: "A brief description of your application",
-	Long: `A longer description that spans multiple lines and likely contains
-examples and usage of using your application. For example:
+	Use:          "repin [FILE]",
+	Short:        "repin is a tool to replace strings between keyword pair",
+	Long:         `repin is a tool to replace strings between keyword pair.`,
+	Version:      version.Version,
+	SilenceUsage: true,
+	Args:         cobra.ExactArgs(1),
+	RunE: func(cmd *cobra.Command, args []string) error {
+		var (
+			src        io.Reader
+			replace    io.Reader
+			out        io.Writer
+			start, end string
+		)
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	//	Run: func(cmd *cobra.Command, args []string) { },
+		switch len(keywords) {
+		case 1:
+			start = keywords[0]
+			end = keywords[0]
+		case 2:
+			start = keywords[0]
+			end = keywords[1]
+		default:
+			return errors.New("--keyword is required 1 or 2")
+		}
+
+		if rf != "" {
+			f, err := os.Open(filepath.Clean(rf))
+			if err == nil {
+				defer f.Close() // #nosec
+				replace = f
+			} else {
+				replace = strings.NewReader(rf)
+			}
+		} else {
+			fi, err := os.Stdin.Stat()
+			if err != nil {
+				return err
+			}
+			if (fi.Mode() & os.ModeCharDevice) != 0 {
+				return errors.New("--in is not set")
+			} else {
+				replace = os.Stdin
+			}
+		}
+
+		{
+			f, err := os.Open(filepath.Clean(args[0]))
+			if err != nil {
+				return err
+			}
+			defer f.Close() // #nosec
+			src = f
+		}
+
+		b := new(bytes.Buffer)
+		if inp {
+			out = b
+		} else {
+			out = os.Stdout
+		}
+
+		if err := repin.Replace(src, replace, start, end, nonl, out); err != nil {
+			return err
+		}
+
+		if inp {
+			if err := os.WriteFile(filepath.Clean(args[0]), b.Bytes(), fs.ModePerm); err != nil {
+				return err
+			}
+		}
+
+		return nil
+	},
 }
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
+	rootCmd.SetOut(os.Stdout)
+	rootCmd.SetErr(os.Stderr)
+
+	log.SetOutput(io.Discard)
+	if env := os.Getenv("DEBUG"); env != "" {
+		log.SetOutput(os.Stderr)
+	}
+
 	if err := rootCmd.Execute(); err != nil {
-		fmt.Println(err)
 		os.Exit(1)
 	}
 }
 
 func init() {
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
-
-	// rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.repin.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	rootCmd.Flags().StringVarP(&rf, "replace", "r", "", "replace file path or string")
+	rootCmd.Flags().StringSliceVarP(&keywords, "keyword", "k", []string{}, "keywords to use as a delimiter. If 1 keyword is specified, it will be used as the start and end delimiters; if 2 keywords are specified, they will be used as the start and end delimiters, respectively.")
+	rootCmd.Flags().BoolVarP(&nonl, "no-newline", "N", false, "disable appending newlines")
+	rootCmd.Flags().BoolVarP(&inp, "in-place", "i", false, "edit file in place")
 }
-
-

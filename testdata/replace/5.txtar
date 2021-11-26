@@ -1,0 +1,16 @@
+-- src --
+Run command
+```
+$ echo hello world
+
+
+$ echo hello world
+
+
+$ echo hello world
+```
+-- want --
+Run command
+```
+$ echo hello world
+```

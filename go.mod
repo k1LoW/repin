@@ -1,0 +1,17 @@
+module github.com/k1LoW/repin
+
+go 1.17
+
+require (
+	github.com/josharian/txtarfs v0.0.0-20210615234325-77aca6df5bca
+	github.com/mattn/go-isatty v0.0.3
+	github.com/spf13/cobra v1.2.1
+	golang.org/x/tools v0.1.2
+)
+
+require (
+	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/josharian/mapfs v0.0.0-20210615234106-095c008854e6 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
+	golang.org/x/sys v0.0.0-20210510120138-977fb7262007 // indirect
+)

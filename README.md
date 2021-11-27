@@ -4,7 +4,7 @@
 
 ## tl;dr
 
-`repin` is a tool that makes it simple to write processes that can be executed with GNU sed, as follows.
+`repin` is a tool that makes it easy to write operations that can be written in GNU sed as follows.
 
 ~~~ console
 $ cat README.md

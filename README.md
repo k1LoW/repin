@@ -6,7 +6,7 @@
 
 `repin` is a tool that makes it easy to write operations that can be written in GNU sed as follows.
 
-~~~ console
+~~~
 $ cat README.md
 # Hello
 
@@ -23,7 +23,7 @@ $ echo hello world!
 $
 ~~~
 
-~~~ console
+~~~
 $ repin README.md -k '```console' -k '```' -r '$ echo hello world!'
 # Hello
 

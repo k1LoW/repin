@@ -75,3 +75,20 @@ func TestReplace(t *testing.T) {
 		}
 	}
 }
+
+func TestLargeDataReplace(t *testing.T) {
+	src := strings.NewReader(strings.Repeat("A", 10000))
+	replace := strings.NewReader("hello")
+	start := "```"
+	end := "```"
+	nonl := false
+	out := new(bytes.Buffer)
+	if err := Replace(src, replace, start, end, nonl, out); err != nil {
+		t.Fatal(err)
+	}
+	got := len(out.String())
+
+	if want := 10000; got != want {
+		t.Errorf("\ngot  %#v\nwant %#v", got, want)
+	}
+}

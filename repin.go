@@ -37,7 +37,10 @@ func Replace(src, replace io.Reader, start, end string, nonl bool, out io.Writer
 				}
 			}
 		}
-		return 0, data, bufio.ErrFinalToken
+		if atEOF {
+			return 0, data, bufio.ErrFinalToken
+		}
+		return 0, nil, nil
 	}
 
 	scanner := bufio.NewScanner(src)

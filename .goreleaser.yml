@@ -89,6 +89,8 @@ brews:
     homepage: https://github.com/k1LoW/repin
     description: repin is a tool to replace strings between keyword pair.
     license: MIT
+    install: |
+      bin.install 'repin'
 nfpms:
   - id: repin-nfpms
     file_name_template: "{{ .ProjectName }}_{{ .Version }}-1_{{ .Arch }}"

@@ -72,7 +72,7 @@ func TestReplace(t *testing.T) {
 		want := string(w)
 
 		out := new(bytes.Buffer)
-		if err := Replace(src, strings.NewReader(tt.replace), tt.start, tt.end, tt.nonl, out); err != nil {
+		if _, err := Replace(src, strings.NewReader(tt.replace), tt.start, tt.end, tt.nonl, out); err != nil {
 			t.Fatal(err)
 		}
 		got := out.String()
@@ -90,7 +90,7 @@ func TestLargeDataReplace(t *testing.T) {
 	end := "```"
 	nonl := false
 	out := new(bytes.Buffer)
-	if err := Replace(src, replace, start, end, nonl, out); err != nil {
+	if _, err := Replace(src, replace, start, end, nonl, out); err != nil {
 		t.Fatal(err)
 	}
 	got := len(out.String())
@@ -181,7 +181,7 @@ func TestPick(t *testing.T) {
 		fsys := txtarfs.As(ar)
 		src, _ := fsys.Open("src")
 		out := new(bytes.Buffer)
-		if err := Pick(src, tt.start, tt.end, tt.nonl, out); err != nil {
+		if _, err := Pick(src, tt.start, tt.end, tt.nonl, out); err != nil {
 			t.Fatal(err)
 		}
 		got := out.String()

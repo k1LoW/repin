@@ -113,7 +113,7 @@ var rootCmd = &cobra.Command{
 			out = os.Stdout
 		}
 
-		if err := repin.Replace(src, replace, start, end, nonl, out); err != nil {
+		if _, err := repin.Replace(src, replace, start, end, nonl, out); err != nil {
 			return err
 		}
 

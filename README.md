@@ -1,4 +1,4 @@
-# repin
+# repin [![build](https://github.com/k1LoW/repin/actions/workflows/ci.yml/badge.svg)](https://github.com/k1LoW/repin/actions/workflows/ci.yml) [![Go Reference](https://pkg.go.dev/badge/github.com/k1LoW/repin.svg)](https://pkg.go.dev/github.com/k1LoW/repin)
 
 `repin` is a tool to replace strings between keyword pair.
 

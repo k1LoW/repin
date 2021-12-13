@@ -53,6 +53,13 @@ func TestReplace(t *testing.T) {
 			"```",
 			false,
 		},
+		{
+			"testdata/replace/6.txtar",
+			"$ echo hello world",
+			"```",
+			"```",
+			false,
+		},
 	}
 	for _, tt := range tests {
 		ar, err := txtar.ParseFile(tt.txtar)
@@ -91,4 +98,97 @@ func TestLargeDataReplace(t *testing.T) {
 	if want := 10000; got != want {
 		t.Errorf("\ngot  %#v\nwant %#v", got, want)
 	}
+}
+
+func TestPick(t *testing.T) {
+	tests := []struct {
+		txtar string
+		start string
+		end   string
+		nonl  bool
+		want  string
+	}{
+		{
+			"testdata/pick/1.txtar",
+			"```",
+			"```",
+			false,
+			"\n$ echo hello world\n",
+		},
+		{
+			"testdata/pick/1.txtar",
+			"```",
+			"```",
+			true,
+			"$ echo hello world",
+		},
+		{
+			"testdata/pick/2.txtar",
+			"```",
+			"```",
+			false,
+			"\n\n$ echo hello world\n\n",
+		},
+		{
+			"testdata/pick/2.txtar",
+			"```",
+			"```",
+			true,
+			"\n$ echo hello world\n",
+		},
+		{
+			"testdata/pick/3.txtar",
+			"```",
+			"```",
+			false,
+			"$ echo hello world\n",
+		},
+		{
+			"testdata/pick/3.txtar",
+			"```",
+			"```",
+			true,
+			"$ echo hello world",
+		},
+		{
+			"testdata/pick/4.txtar",
+			"<h1>",
+			"</h1>",
+			false,
+			"\nHello world!\n",
+		},
+		{
+			"testdata/pick/4.txtar",
+			"<h1>",
+			"</h1>",
+			true,
+			"Hello world!",
+		},
+		{
+			"testdata/pick/5.txtar",
+			"<b>",
+			"</b>",
+			false,
+			"Helloworld!",
+		},
+	}
+
+	for _, tt := range tests {
+		ar, err := txtar.ParseFile(tt.txtar)
+		if err != nil {
+			t.Fatal(err)
+		}
+		fsys := txtarfs.As(ar)
+		src, _ := fsys.Open("src")
+		out := new(bytes.Buffer)
+		if err := Pick(src, tt.start, tt.end, tt.nonl, out); err != nil {
+			t.Fatal(err)
+		}
+		got := out.String()
+
+		if got != tt.want {
+			t.Errorf("\ngot  %#v\nwant %#v", got, tt.want)
+		}
+	}
+
 }

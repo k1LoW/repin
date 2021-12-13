@@ -8,10 +8,10 @@ import (
 )
 
 // Replace strings between `start` and `end` of `src` to `replace` and write `out`.
-func Replace(src, replace io.Reader, start, end string, nonl bool, out io.Writer) error {
+func Replace(src, replace io.Reader, start, end string, nonl bool, out io.Writer) (int, error) {
 	r, err := io.ReadAll(replace)
 	if err != nil {
-		return err
+		return 0, err
 	}
 
 	sl := len(start)
@@ -69,14 +69,14 @@ func Replace(src, replace io.Reader, start, end string, nonl bool, out io.Writer
 	}
 
 	if c%2 != 0 {
-		return errors.New("invalid keyword pair")
+		return 0, errors.New("invalid keyword pair")
 	}
 
-	return nil
+	return c / 2, nil
 }
 
 // Pick strings between `start` and `end` of `src` and write `out`.
-func Pick(src io.Reader, start, end string, nonl bool, out io.Writer) error {
+func Pick(src io.Reader, start, end string, nonl bool, out io.Writer) (int, error) {
 	sl := len(start)
 	el := len(end)
 	flip := true
@@ -124,8 +124,8 @@ func Pick(src io.Reader, start, end string, nonl bool, out io.Writer) error {
 	}
 
 	if c%2 != 0 {
-		return errors.New("invalid keyword pair")
+		return 0, errors.New("invalid keyword pair")
 	}
 
-	return nil
+	return c / 2, nil
 }

@@ -4,8 +4,8 @@ go 1.17
 
 require (
 	github.com/josharian/txtarfs v0.0.0-20210615234325-77aca6df5bca
-	github.com/spf13/cobra v1.2.1
-	golang.org/x/tools v0.1.2
+	github.com/spf13/cobra v1.3.0
+	golang.org/x/tools v0.1.5
 )
 
 require (

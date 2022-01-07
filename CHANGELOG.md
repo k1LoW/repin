@@ -1,3 +1,7 @@
+## [v0.3.2](https://github.com/k1LoW/repin/compare/v0.3.1...v0.3.2) (2022-01-07)
+
+* Fix error message [#5](https://github.com/k1LoW/repin/pull/5) ([k1LoW](https://github.com/k1LoW))
+
 ## [v0.3.1](https://github.com/k1LoW/repin/compare/v0.3.0...v0.3.1) (2021-12-15)
 
 

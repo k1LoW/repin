@@ -91,7 +91,7 @@ var rootCmd = &cobra.Command{
 				return err
 			}
 			if (fi.Mode() & os.ModeCharDevice) != 0 {
-				return errors.New("--in is not set")
+				return errors.New("--replace is not set")
 			} else {
 				replace = os.Stdin
 			}

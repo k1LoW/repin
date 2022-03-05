@@ -34,6 +34,28 @@ $ echo hello world!
 $
 ~~~
 
+~~~
+$ repin --help | repin README.md -k '```console' -k '```'
+# Hello
+
+```console
+repin is a tool to replace strings between keyword pair.
+
+Usage:
+  repin [FILE] [flags]
+
+Flags:
+  -h, --help              help for repin
+  -i, --in-place          edit file in place
+  -k, --keyword strings   keywords to use as a delimiter. If 1 keyword is specified, it will be used as the start and end delimiters; if 2 keywords are specified, they will be used as the start and end delimiters, respectively.
+  -N, --no-newline        disable appending newlines
+      --raw-keywords      do not convert \n or \t of the entered keywords
+  -r, --replace string    replace file path or string
+  -v, --version           version for repin
+
+```
+~~~
+
 ## Install
 
 **deb:**

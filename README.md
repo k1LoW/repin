@@ -60,11 +60,10 @@ Flags:
 
 **deb:**
 
-Use [dpkg-i-from-url](https://github.com/k1LoW/dpkg-i-from-url)
-
 ``` console
 $ export REPIN_VERSION=X.X.X
-$ curl -L https://git.io/dpkg-i-from-url | bash -s -- https://github.com/k1LoW/repin/releases/download/v$REPIN_VERSION/repin_$REPIN_VERSION-1_amd64.deb
+$ curl -o repin.deb -L https://github.com/k1LoW/repin/releases/download/v$REPIN_VERSION/repin_$REPIN_VERSION-1_amd64.deb
+$ dpkg -i repin.deb
 ```
 
 **RPM:**
@@ -76,11 +75,10 @@ $ yum install https://github.com/k1LoW/repin/releases/download/v$REPIN_VERSION/r
 
 **apk:**
 
-Use [apk-add-from-url](https://github.com/k1LoW/apk-add-from-url)
-
 ``` console
 $ export REPIN_VERSION=X.X.X
-$ curl -L https://git.io/apk-add-from-url | sh -s -- https://github.com/k1LoW/repin/releases/download/v$REPIN_VERSION/repin_$REPIN_VERSION-1_amd64.apk
+$ curl -o repin.apk -L https://github.com/k1LoW/repin/releases/download/v$REPIN_VERSION/repin_$REPIN_VERSION-1_amd64.apk
+$ apk add repin.apk
 ```
 
 **homebrew tap:**

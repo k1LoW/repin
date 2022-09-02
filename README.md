@@ -1,4 +1,4 @@
-# repin [![build](https://github.com/k1LoW/repin/actions/workflows/ci.yml/badge.svg)](https://github.com/k1LoW/repin/actions/workflows/ci.yml) [![Go Reference](https://pkg.go.dev/badge/github.com/k1LoW/repin.svg)](https://pkg.go.dev/github.com/k1LoW/repin)
+# repin [![build](https://github.com/k1LoW/repin/actions/workflows/ci.yml/badge.svg)](https://github.com/k1LoW/repin/actions/workflows/ci.yml) [![Go Reference](https://pkg.go.dev/badge/github.com/k1LoW/repin.svg)](https://pkg.go.dev/github.com/k1LoW/repin) ![Coverage](https://raw.githubusercontent.com/k1LoW/octocovs/main/badges/k1LoW/repin/coverage.svg) ![Code to Test Ratio](https://raw.githubusercontent.com/k1LoW/octocovs/main/badges/k1LoW/repin/ratio.svg) ![Test Execution Time](https://raw.githubusercontent.com/k1LoW/octocovs/main/badges/k1LoW/repin/time.svg)
 
 `repin` is a tool to replace strings between keyword pair.
 

@@ -43,6 +43,7 @@ var (
 	nonl        bool
 	inp         bool
 	rawKeywords bool
+	keyRep      = strings.NewReplacer("\\n", "\n", "\\t", "\t")
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -61,7 +62,6 @@ var rootCmd = &cobra.Command{
 			start, end string
 		)
 
-		keyRep := strings.NewReplacer("\\n", "\n", "\\t", "\t")
 		if rawKeywords {
 			keyRep = &strings.Replacer{}
 		}

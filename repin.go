@@ -52,12 +52,22 @@ func Replace(src, replace io.Reader, start, end string, nonl bool, out io.Writer
 		s := scanner.Text()
 		b := []byte(s)
 		if in {
-			out.Write(b)
+			_, err := out.Write(b)
+			if err != nil {
+				return 0, err
+			}
+
 			if strings.Contains(s, start) {
 				if !nonl && b[len(b)-1] != '\n' {
-					out.Write([]byte("\n"))
+					_, err := out.Write([]byte("\n"))
+					if err != nil {
+						return 0, err
+					}
 				}
-				out.Write(r)
+				_, err := out.Write(r)
+				if err != nil {
+					return 0, err
+				}
 			}
 		} else {
 			if !nonl {

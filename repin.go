@@ -3,6 +3,7 @@ package repin
 import (
 	"bufio"
 	"errors"
+	"fmt"
 	"io"
 	"strings"
 )
@@ -16,6 +17,9 @@ func Replace(src, replace io.Reader, start, end string, nonl bool, out io.Writer
 
 	sl := len(start)
 	el := len(end)
+	if sl == 0 || el == 0 {
+		return 0, fmt.Errorf("start and end must be of length greater than zero: %#v %#v", start, end)
+	}
 	flip := true
 	c := 0
 	sf := func(data []byte, atEOF bool) (advance int, token []byte, err error) {

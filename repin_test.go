@@ -192,3 +192,11 @@ func TestPick(t *testing.T) {
 	}
 
 }
+
+func FuzzRepin(f *testing.F) {
+	f.Add([]byte("Run command\n```\n```\n"), []byte("hello"), "```", "```", false)
+	f.Fuzz(func(t *testing.T, src []byte, replace []byte, start, end string, nonl bool) {
+		out := new(bytes.Buffer)
+		_, _ = Replace(bytes.NewReader(src), bytes.NewReader(replace), start, end, nonl, out)
+	})
+}

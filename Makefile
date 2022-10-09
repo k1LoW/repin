@@ -19,6 +19,9 @@ ci: depsdev test
 test:
 	go test ./... -coverprofile=coverage.out -covermode=count
 
+fuzz:
+	go test -fuzz ./... -fuzztime=60s
+
 lint:
 	golangci-lint run ./...
 

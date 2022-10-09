@@ -75,9 +75,15 @@ func Replace(src, replace io.Reader, start, end string, nonl bool, out io.Writer
 			}
 		} else {
 			if !nonl {
-				out.Write([]byte("\n" + end))
+				_, err := out.Write([]byte("\n" + end))
+				if err != nil {
+					return 0, err
+				}
 			} else {
-				out.Write([]byte(end))
+				_, err := out.Write([]byte(end))
+				if err != nil {
+					return 0, err
+				}
 			}
 		}
 	}
@@ -133,7 +139,10 @@ func Pick(src io.Reader, start, end string, nonl bool, out io.Writer) (int, erro
 				s = strings.TrimPrefix(strings.TrimSuffix(s, "\n"), "\n")
 			}
 			b := []byte(s)
-			out.Write(b)
+			_, err := out.Write(b)
+			if err != nil {
+				return 0, err
+			}
 		}
 	}
 

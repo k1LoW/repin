@@ -75,22 +75,6 @@ dockers:
       - "--label=org.opencontainers.image.source=https://github.com/k1LoW/repin"
     extra_files:
       - scripts/entrypoint.sh
-brews:
-  -
-    name: repin
-    ids:
-      - repin-archive
-    tap:
-      owner: k1LoW
-      name: homebrew-tap
-    commit_author:
-      name: k1LoW
-      email: k1lowxb@gmail.com
-    homepage: https://github.com/k1LoW/repin
-    description: repin is a tool to replace strings between keyword pair.
-    license: MIT
-    install: |
-      bin.install 'repin'
 nfpms:
   - id: repin-nfpms
     file_name_template: "{{ .ProjectName }}_{{ .Version }}-1_{{ .Arch }}"

@@ -1,3 +1,7 @@
+## [v0.3.4](https://github.com/k1LoW/repin/compare/v0.3.3...v0.3.4) - 2022-11-03
+- Fix docker image build pipeline by @k1LoW in https://github.com/k1LoW/repin/pull/10
+- Bump up go and pkg version by @k1LoW in https://github.com/k1LoW/repin/pull/12
+
 ## [v0.3.3](https://github.com/k1LoW/repin/compare/v0.3.2...v0.3.3) - 2022-10-09
 - Git.io deprecation by @k1LoW in https://github.com/k1LoW/repin/pull/6
 - Add Fuzzing and Fix by @k1LoW in https://github.com/k1LoW/repin/pull/7

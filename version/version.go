@@ -4,4 +4,4 @@ package version
 const Name string = "repin"
 
 // Version for this
-var Version = "0.3.3"
+var Version = "0.3.4"

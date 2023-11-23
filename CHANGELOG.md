@@ -1,3 +1,5 @@
+## [v0.3.5](https://github.com/k1LoW/repin/compare/v0.3.4...v0.3.5) - 2023-11-23
+
 ## [v0.3.4](https://github.com/k1LoW/repin/compare/v0.3.3...v0.3.4) - 2022-11-03
 - Fix docker image build pipeline by @k1LoW in https://github.com/k1LoW/repin/pull/10
 - Bump up go and pkg version by @k1LoW in https://github.com/k1LoW/repin/pull/12

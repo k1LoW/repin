@@ -22,7 +22,7 @@ func Replace(src, replace io.Reader, start, end string, nonl bool, out io.Writer
 	}
 	flip := true
 	c := 0
-	sf := func(data []byte, atEOF bool) (advance int, token []byte, err error) {
+	var sf bufio.SplitFunc = func(data []byte, atEOF bool) (advance int, token []byte, err error) {
 		for i := 0; i < len(data); i++ {
 			if flip {
 				if i >= sl {

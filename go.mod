@@ -1,6 +1,6 @@
 module github.com/k1LoW/repin
 
-go 1.19
+go 1.24
 
 require (
 	github.com/josharian/txtarfs v0.0.0-20210615234325-77aca6df5bca

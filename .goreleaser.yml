@@ -1,3 +1,4 @@
+version: 2
 before:
   hooks:
     - go mod download
@@ -12,9 +13,9 @@ builds:
   goarch:
     - amd64
     - arm64
-  main: ./cmd/repin/main.go
   ldflags:
     - -s -w -X github.com/k1LoW/repin.version={{.Version}} -X github.com/k1LoW/repin.commit={{.FullCommit}} -X github.com/k1LoW/repin.date={{.Date}} -X github.com/k1LoW/repin/version.Version={{.Version}}
+  main: ./cmd/repin/main.go
 -
   id: repin-darwin
   env:
@@ -24,9 +25,9 @@ builds:
   goarch:
     - amd64
     - arm64
-  main: ./cmd/repin/main.go
   ldflags:
     - -s -w -X github.com/k1LoW/repin.version={{.Version}} -X github.com/k1LoW/repin.commit={{.FullCommit}} -X github.com/k1LoW/repin.date={{.Date}} -X github.com/k1LoW/repin/version.Version={{.Version}}
+  main: ./cmd/repin/main.go
 -
   id: repin-windows
   env:
@@ -35,9 +36,9 @@ builds:
     - windows
   goarch:
     - amd64
-  main: ./cmd/repin/main.go
   ldflags:
     - -s -w -X github.com/k1LoW/repin.version={{.Version}} -X github.com/k1LoW/repin.commit={{.FullCommit}} -X github.com/k1LoW/repin.date={{.Date}} -X github.com/k1LoW/repin/version.Version={{.Version}}
+  main: ./cmd/repin/main.go
 archives:
 -
   id: repin-archive
@@ -46,31 +47,35 @@ archives:
     - goos: darwin
       format: zip
   files:
+    - LICENSE
     - CREDITS
     - README.md
     - CHANGELOG.md
--
-  id: repin-binary
-  name_template: '{{ .Binary }}_v{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{ .Arm }}{{ end }}'
-  format: binary
 checksum:
   name_template: 'checksums.txt'
 snapshot:
   name_template: "{{ .Version }}-next"
 changelog:
-  skip: true
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
 nfpms:
-  - id: repin-nfpms
+  -
+    id: repin-nfpms
     file_name_template: "{{ .ProjectName }}_{{ .Version }}-1_{{ .Arch }}"
     builds:
-      - repin-linux
+    - repin-linux
     homepage: https://github.com/k1LoW/repin
     maintainer: Ken'ichiro Oyama <k1lowxb@gmail.com>
     description: repin is a tool to replace strings between keyword pair.
     license: MIT
     formats:
-      - apk
       - deb
       - rpm
     bindir: /usr/bin
     epoch: 1
+release:
+  draft: true
+  replace_existing_draft: true

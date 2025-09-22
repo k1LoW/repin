@@ -46,7 +46,6 @@ var (
 	keyRep      = strings.NewReplacer("\\n", "\n", "\\t", "\t")
 )
 
-// rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:          "repin [FILE]",
 	Short:        "repin is a tool to replace strings between keyword pair",

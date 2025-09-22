@@ -1,3 +1,8 @@
+## [v0.4.0](https://github.com/k1LoW/repin/compare/v0.3.4...v0.4.0) - 2025-09-22
+- fix: re-setup CI by @k1LoW in https://github.com/k1LoW/repin/pull/14
+- chore(deps): bump the dependencies group with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/15
+- chore(deps): bump Songmu/tagpr from 1.8.4 to 1.9.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/16
+
 ## [v0.3.4](https://github.com/k1LoW/repin/compare/v0.3.3...v0.3.4) - 2022-11-03
 - Fix docker image build pipeline by @k1LoW in https://github.com/k1LoW/repin/pull/10
 - Bump up go and pkg version by @k1LoW in https://github.com/k1LoW/repin/pull/12

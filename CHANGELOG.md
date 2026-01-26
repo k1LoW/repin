@@ -1,3 +1,15 @@
+## [v0.4.1](https://github.com/k1LoW/repin/compare/v0.4.0...v0.4.1) - 2026-01-26
+- chore: setup tagpr labels by @k1LoW in https://github.com/k1LoW/repin/pull/19
+- chore(deps): bump golang.org/x/tools from 0.37.0 to 0.38.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/18
+- chore(deps): bump docker/login-action from 3.5.0 to 3.6.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/17
+- chore(deps): bump the dependencies group across 1 directory with 3 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/23
+- chore(deps): bump the dependencies group across 1 directory with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/26
+- chore(deps): bump the dependencies group across 1 directory with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/24
+- chore(deps): bump the dependencies group across 1 directory with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/29
+- chore(deps): bump the dependencies group with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/30
+- chore(deps): bump golang.org/x/tools from 0.39.0 to 0.40.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/27
+- chore(deps): bump the dependencies group with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/31
+
 ## [v0.4.0](https://github.com/k1LoW/repin/compare/v0.3.4...v0.4.0) - 2025-09-22
 - fix: re-setup CI by @k1LoW in https://github.com/k1LoW/repin/pull/14
 - chore(deps): bump the dependencies group with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/15

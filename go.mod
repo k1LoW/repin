@@ -1,11 +1,11 @@
 module github.com/k1LoW/repin
 
-go 1.24.0
+go 1.25.0
 
 require (
 	github.com/josharian/txtarfs v0.0.0-20210615234325-77aca6df5bca
 	github.com/spf13/cobra v1.10.2
-	golang.org/x/tools v0.42.0
+	golang.org/x/tools v0.43.0
 )
 
 require (

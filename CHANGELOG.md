@@ -1,3 +1,21 @@
+## [v0.4.2](https://github.com/k1LoW/repin/compare/v0.4.1...v0.4.2) - 2026-06-22
+
+- chore(deps): bump the dependencies group with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/34
+- chore(deps): bump goreleaser/goreleaser-action from 6.4.0 to 7.0.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/36
+- chore(deps): bump golang.org/x/tools from 0.41.0 to 0.42.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/33
+- chore(deps): bump golang.org/x/tools from 0.42.0 to 0.43.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/39
+- chore(deps): bump the dependencies group across 1 directory with 7 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/40
+- chore(deps): bump the dependencies group with 3 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/41
+- chore(deps): bump golang.org/x/tools from 0.43.0 to 0.44.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/42
+- chore(deps): bump the dependencies group with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/43
+- chore(deps): bump the dependencies group with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/44
+- chore(deps): bump the dependencies group with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/45
+- chore(deps): bump the dependencies group across 1 directory with 5 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/48
+- chore(deps): bump golang.org/x/tools from 0.44.0 to 0.45.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/46
+- chore(deps): bump docker/setup-qemu-action from 4.0.0 to 4.1.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/49
+- chore(deps): bump the dependencies group with 2 updates by @dependabot[bot] in https://github.com/k1LoW/repin/pull/50
+- chore(deps): bump actions/checkout from 6.0.3 to 7.0.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/52
+
 ## [v0.4.1](https://github.com/k1LoW/repin/compare/v0.4.0...v0.4.1) - 2026-02-02
 - chore: setup tagpr labels by @k1LoW in https://github.com/k1LoW/repin/pull/19
 - chore(deps): bump golang.org/x/tools from 0.37.0 to 0.38.0 in the dependencies group by @dependabot[bot] in https://github.com/k1LoW/repin/pull/18

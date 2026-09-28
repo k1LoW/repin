@@ -29,11 +29,14 @@ build:
 	go build -ldflags="$(BUILD_LDFLAGS)" -o repin cmd/repin/main.go
 
 depsdev:
-	go install github.com/Songmu/gocredits/cmd/gocredits@latest
+
+credits:
+	go install github.com/Songmu/gocredits/cmd/gocredits@v1.0.0
+	gocredits . > CREDITS
 
 prerelease_for_tagpr:
 	go mod tidy
-	gocredits -w .
+	$(MAKE) credits
 	git add CHANGELOG.md CREDITS go.mod go.sum
 
-.PHONY: default test
+.PHONY: default test credits
